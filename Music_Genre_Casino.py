@@ -1,6 +1,6 @@
 import random
 import tkinter as tk
-
+from tkinter import ttk
 Genre_Dict = {"Avant-Garde & Experimental":["Crossover Music", "Danger Music", "Drone Music", "Electroacoustic", "Industrial Music",
                                             "Instrumental Music", "Lo-fi", "Musical Improvisation", "Musique Concrete", "Noise",
                                             "Outsider Music", "Progressive Music", "Psychedelic Music", "Underground Music"],
@@ -80,11 +80,11 @@ class myApp:
              self.root.geometry(f'{self.window_width}x{self.window_height}+{self.center_x}+{self.center_y}')
              
               # Label to display the genre and subgenre
-             self.result_label = tk.Label(self.root, text="Press the button to get a genre!", font=("Helvetica", 14))
+             self.result_label = ttk.Label(self.root, text="Press the button to get a genre!", font=("Helvetica", 14))
              self.result_label.pack(pady=20)
 
         # Button to trigger Crank_That_Bitch
-             self.generate_button = tk.Button(self.root, text="Generate Genre", command=self.Crank_That_Bitch)
+             self.generate_button = ttk.Button(self.root, text="Generate Genre", command=self.Crank_That_Bitch)
              self.generate_button.pack(pady=10)
         
         def Random_Genre(self):
