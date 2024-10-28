@@ -62,7 +62,19 @@ class myApp:
         def __init__(self, root):
              self.root = root
              self.root.title("Music Genre Casino")
-             self.root.geometry("600x400") # window size
+             self.window_width = 1000
+             self.window_height = 600
+
+             # get the screen dimension
+             self.screen_width = root.winfo_screenwidth()
+             self.screen_height = root.winfo_screenheight()
+
+             # find the center point
+             self.center_x = int(self.screen_width/2 - self.window_width / 2)
+             self.center_y = int(self.screen_height/2 - self.window_height / 2)
+
+             # set the position of the window to the center of the screen
+             self.root.geometry(f'{self.window_width}x{self.window_height}+{self.center_x}+{self.center_y}')
               # Label to display the genre and subgenre
              self.result_label = tk.Label(self.root, text="Press the button to get a genre!", font=("Helvetica", 14))
              self.result_label.pack(pady=20)
