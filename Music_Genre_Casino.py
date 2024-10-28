@@ -1,6 +1,6 @@
 import random
 import tkinter as tk
-import time
+
 Genre_Dict = {"Avant-Garde & Experimental":["Crossover Music", "Danger Music", "Drone Music", "Electroacoustic", "Industrial Music",
                                             "Instrumental Music", "Lo-fi", "Musical Improvisation", "Musique Concrete", "Noise",
                                             "Outsider Music", "Progressive Music", "Psychedelic Music", "Underground Music"],
@@ -82,14 +82,16 @@ class myApp:
              self.result_label.config(text=result_text)
              self.generate_button.config(state=tk.DISABLED) 
              self.spin_count = 0 
+             self.spin_speed = 0
              self.Spin()
         
         def Spin(self):
-                if self.spin_count < 5:
+                if self.spin_count < 18:
                         result_text = self.Crank_That_Bitch()
                         self.result_label.config(text=result_text)
                         self.spin_count += 1
-                        self.root.after(200,self.Spin)
+                        self.spin_speed += 25
+                        self.root.after(self.spin_speed,self.Spin)
                 else:
                         self.Stop_Spin()
         def Stop_Spin(self):
@@ -106,8 +108,6 @@ def Main():
 
     root = tk.Tk() # initialize the main window
     app = myApp(root)
-    root.geometry("600x400") # window size
-    
     root.mainloop() # run the application
     
    
