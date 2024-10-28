@@ -1,6 +1,6 @@
 import random
 import tkinter as tk
-
+import time
 Genre_Dict = {"Avant-Garde & Experimental":["Crossover Music", "Danger Music", "Drone Music", "Electroacoustic", "Industrial Music",
                                             "Instrumental Music", "Lo-fi", "Musical Improvisation", "Musique Concrete", "Noise",
                                             "Outsider Music", "Progressive Music", "Psychedelic Music", "Underground Music"],
@@ -63,20 +63,51 @@ class myApp:
              self.root = root
              self.root.title("Music Genre Casino")
              self.root.geometry("600x400") # window size
-             
+              # Label to display the genre and subgenre
+             self.result_label = tk.Label(self.root, text="Press the button to get a genre!", font=("Helvetica", 14))
+             self.result_label.pack(pady=20)
+
+        # Button to trigger Crank_That_Bitch
+             self.generate_button = tk.Button(self.root, text="Generate Genre", command=self.update_result)
+             self.generate_button.pack(pady=10)
+        
         def Crank_That_Bitch(self):
              Random_Genre = random.choice(list(Genre_Dict.keys()))
              Random_Sub_Genre = random.choice(Genre_Dict[Random_Genre])
-             return Random_Genre, Random_Sub_Genre
+             return f"{Random_Genre}: {Random_Sub_Genre}"
+        
+        def update_result(self):
+        # Call Crank_That_Bitch and update the label with its result
+             result_text = self.Crank_That_Bitch()
+             self.result_label.config(text=result_text)
+             self.generate_button.config(state=tk.DISABLED) 
+             self.spin_count = 0 
+             self.Spin()
+        
+        def Spin(self):
+                if self.spin_count < 5:
+                        result_text = self.Crank_That_Bitch()
+                        self.result_label.config(text=result_text)
+                        self.spin_count += 1
+                        self.root.after(200,self.Spin)
+                else:
+                        self.Stop_Spin()
+        def Stop_Spin(self):
+                final_result_text = self.Crank_That_Bitch()
+                self.generate_button.config(state=tk.NORMAL)
+                self.result_label.config(text=final_result_text)
+                
+
+                      
+
+        
      
 def Main():
 
     root = tk.Tk() # initialize the main window
     app = myApp(root)
-    genre, subgenre = app.Crank_That_Bitch()
-    genre2, subgenre2 = app.Crank_That_Bitch()
     root.geometry("600x400") # window size
-    print(genre, subgenre, genre2, subgenre2)
+    
     root.mainloop() # run the application
     
    
