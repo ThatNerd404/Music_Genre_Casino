@@ -62,12 +62,15 @@ class myApp:
         def __init__(self, root):
              self.root = root
              self.root.title("Music Genre Casino")
+             self.root.iconbitmap('assests\icons8-slot-machine-48.ico')
+             # window size 
              self.window_width = 1000
              self.window_height = 600
-             self.root.resizable(False, False)
+             
              # get the screen dimension
              self.screen_width = root.winfo_screenwidth()
              self.screen_height = root.winfo_screenheight()
+             self.root.resizable(False, False)
 
              # find the center point
              self.center_x = int(self.screen_width/2 - self.window_width / 2)
