@@ -64,7 +64,7 @@ class myApp:
              self.root.title("Music Genre Casino")
              self.window_width = 1000
              self.window_height = 600
-
+             self.root.resizable(False, False)
              # get the screen dimension
              self.screen_width = root.winfo_screenwidth()
              self.screen_height = root.winfo_screenheight()
@@ -75,22 +75,23 @@ class myApp:
 
              # set the position of the window to the center of the screen
              self.root.geometry(f'{self.window_width}x{self.window_height}+{self.center_x}+{self.center_y}')
+             
               # Label to display the genre and subgenre
              self.result_label = tk.Label(self.root, text="Press the button to get a genre!", font=("Helvetica", 14))
              self.result_label.pack(pady=20)
 
         # Button to trigger Crank_That_Bitch
-             self.generate_button = tk.Button(self.root, text="Generate Genre", command=self.update_result)
+             self.generate_button = tk.Button(self.root, text="Generate Genre", command=self.Crank_That_Bitch)
              self.generate_button.pack(pady=10)
         
-        def Crank_That_Bitch(self):
+        def Random_Genre(self):
              Random_Genre = random.choice(list(Genre_Dict.keys()))
              Random_Sub_Genre = random.choice(Genre_Dict[Random_Genre])
              return f"{Random_Genre}: {Random_Sub_Genre}"
         
-        def update_result(self):
-        # Call Crank_That_Bitch and update the label with its result
-             result_text = self.Crank_That_Bitch()
+        def Crank_That_Bitch(self):
+        # Call Random_Genre and update the label with its result
+             result_text = self.Random_Genre()
              self.result_label.config(text=result_text)
              self.generate_button.config(state=tk.DISABLED) 
              self.spin_count = 0 
@@ -98,8 +99,9 @@ class myApp:
              self.Spin()
         
         def Spin(self):
+        # Flash 18 times starting at 25ms and ending at 450ms
                 if self.spin_count < 18:
-                        result_text = self.Crank_That_Bitch()
+                        result_text = self.Random_Genre()
                         self.result_label.config(text=result_text)
                         self.spin_count += 1
                         self.spin_speed += 25
@@ -107,7 +109,7 @@ class myApp:
                 else:
                         self.Stop_Spin()
         def Stop_Spin(self):
-                final_result_text = self.Crank_That_Bitch()
+                final_result_text = self.Random_Genre()
                 self.generate_button.config(state=tk.NORMAL)
                 self.result_label.config(text=final_result_text)
                 
