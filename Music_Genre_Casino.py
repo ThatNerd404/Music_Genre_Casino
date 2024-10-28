@@ -99,16 +99,16 @@ class myApp:
              self.generate_button.config(state=tk.DISABLED) 
              self.spin_count = 0 
              self.spin_speed = 0
-             self.Spin()
+             self.Spinning()
         
-        def Spin(self):
+        def Spinning(self):
         # Flash 18 times starting at 25ms and ending at 450ms
                 if self.spin_count < 18:
                         result_text = self.Random_Genre()
                         self.result_label.config(text=result_text)
                         self.spin_count += 1
                         self.spin_speed += 25
-                        self.root.after(self.spin_speed,self.Spin)
+                        self.root.after(self.spin_speed,self.Spinning)
                 else:
                         self.Stop_Spin()
         def Stop_Spin(self):
