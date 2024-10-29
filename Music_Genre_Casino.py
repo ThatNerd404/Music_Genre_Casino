@@ -92,28 +92,33 @@ class myApp:
              self.root.title("Music Genre Casino")
              self.root.iconbitmap('assests\icons8-slot-machine-48.ico')
              # window size 
-             self.window_width = 1000
-             self.window_height = 600
              
+             self.casino_img = tk.PhotoImage(file="assests\Casino_BG_tiny.png")
+             self.window_width = self.casino_img.width()
+             self.window_height =self.casino_img.height()
              # get the screen dimension
              self.screen_width = root.winfo_screenwidth()
              self.screen_height = root.winfo_screenheight()
              self.root.resizable(False, False)
 
              # find the center point
-             self.center_x = int(self.screen_width/2 - self.window_width / 2)
-             self.center_y = int(self.screen_height/2 - self.window_height / 2)
+             self.center_x_screen = int(self.screen_width/2 - self.window_width / 2)
+             self.center_y_screen = int(self.screen_height/2 - self.window_height / 2)
 
              # set the position of the window to the center of the screen
-             self.root.geometry(f'{self.window_width}x{self.window_height}+{self.center_x}+{self.center_y}')
+             self.root.geometry(f'{self.window_width}x{self.window_height}+{self.center_x_screen}+{self.center_y_screen}')
+            
+            
+             self.bg_image = tk.Label(self.root, image=self.casino_img, anchor=tk.CENTER)
+             self.bg_image.place(x=0,y=0)
              
               # Label to display the genre and subgenre
-             self.result_label = ttk.Label(self.root, text="Press the button to get a genre!", font=("Helvetica", 14))
-             self.result_label.pack(pady=20)
+             self.result_label = ttk.Label(self.root, text="Press the button to get a genre!", font=("Helvetica", 14), anchor=tk.CENTER)
+             self.result_label.pack(ipadx=0,ipady=0)
 
         # Button to trigger Crank_That_Bitch
              self.generate_button = ttk.Button(self.root, text="Generate Genre", command=self.Crank_That_Bitch)
-             self.generate_button.pack(pady=10)
+             self.generate_button.pack(ipadx=0,ipady=0)
         
         def Random_Genre(self):
              Random_Genre = random.choice(list(Genre_Dict.keys()))
@@ -139,6 +144,7 @@ class myApp:
                         self.root.after(self.spin_speed,self.Spinning)
                 else:
                         self.Stop_Spin()
+                        
         def Stop_Spin(self):
                 final_result_text = self.Random_Genre()
                 self.generate_button.config(state=tk.NORMAL)
