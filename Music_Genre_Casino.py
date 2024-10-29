@@ -92,8 +92,7 @@ class myApp:
              self.root.title("Music Genre Casino")
              self.root.iconbitmap('assests\icons8-slot-machine-48.ico')
              # window size 
-             
-             self.casino_img = tk.PhotoImage(file="assests\Casino_BG_tiny.png")
+             self.casino_img = tk.PhotoImage(file="assests\Casino_BG_tiny.png") #photoimage only takes pngs
              self.window_width = self.casino_img.width()
              self.window_height =self.casino_img.height()
              # get the screen dimension
@@ -107,18 +106,20 @@ class myApp:
 
              # set the position of the window to the center of the screen
              self.root.geometry(f'{self.window_width}x{self.window_height}+{self.center_x_screen}+{self.center_y_screen}')
-            
-            
-             self.bg_image = tk.Label(self.root, image=self.casino_img, anchor=tk.CENTER)
+             self.bg_image = ttk.Label(self.root, image=self.casino_img, anchor=tk.CENTER)
              self.bg_image.place(x=0,y=0)
              
+             self.slot_machine_img = tk.PhotoImage(file="assests\Slot_Machine.png")
+             self.spinny_spinny_time = ttk.Label(self.root, image=self.slot_machine_img)
+             self.spinny_spinny_time.place(relx=0.5,y=300, anchor=tk.CENTER)
+             
               # Label to display the genre and subgenre
-             self.result_label = ttk.Label(self.root, text="Press the button to get a genre!", font=("Helvetica", 14), anchor=tk.CENTER)
-             self.result_label.pack(ipadx=0,ipady=0)
+             self.result_label = ttk.Label(self.root, text="", font=("Helvetica", 14), anchor=tk.CENTER)
+             self.result_label.place(relx=0.5,y=200, anchor=tk.CENTER)
 
         # Button to trigger Crank_That_Bitch
              self.generate_button = ttk.Button(self.root, text="Generate Genre", command=self.Crank_That_Bitch)
-             self.generate_button.pack(ipadx=0,ipady=0)
+             self.generate_button.place(relx=0.5,y=250, anchor=tk.CENTER)
         
         def Random_Genre(self):
              Random_Genre = random.choice(list(Genre_Dict.keys()))
