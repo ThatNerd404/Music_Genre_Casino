@@ -30,7 +30,6 @@
     background-image: url(C:/Users/MyCom/Desktop/.vscode/Github_Projects/Music_Genre_Casino/assests/Casino_BG_tiny.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
 }</string>
   </property>
   <widget class="QWidget" name="Background_Widget">

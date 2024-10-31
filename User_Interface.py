@@ -96,8 +96,8 @@ class UserInterface(QMainWindow, Ui_MainWindow):
         self.Slot_Lever_Widget.clicked.connect(self.Crank_That_Bitch) # How I connect a button to a function
         
     def Random_Genre(self):
-        Random_Genre = random.choice(list(Genre_Dict.keys())) #change the keys into a list then randomly pick one
-        Random_Sub_Genre = random.choice(Genre_Dict[Random_Genre])
+        Random_Genre = random.choice(list(Genre_Dict.keys())) # Change the keys into a list then randomly pick one
+        Random_Sub_Genre = random.choice(Genre_Dict[Random_Genre]) # From the random key, choose a random value from its subgenre list
         return f"{Random_Genre}: {Random_Sub_Genre}"
     
     def Crank_That_Bitch(self):
@@ -118,6 +118,7 @@ class UserInterface(QMainWindow, Ui_MainWindow):
                         QTimer.singleShot(self.spin_speed,self.Spinning) # Same as the .after stuff
                 else:
                         self.Stop_Spin()
+                        
     def Stop_Spin(self):
         # Put the final result in and stop the spin
                 final_result_text = self.Random_Genre()

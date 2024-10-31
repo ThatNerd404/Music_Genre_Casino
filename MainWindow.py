@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
 "    background-image: url(C:/Users/MyCom/Desktop/.vscode/Github_Projects/Music_Genre_Casino/assests/Casino_BG_tiny.png);\n"
 "    background-position: center;\n"
 "    background-repeat: no-repeat;\n"
-"    background-size: cover;\n"
+
 "}")
         self.Background_Widget = QWidget(MainWindow)
         self.Background_Widget.setObjectName(u"Background_Widget")
