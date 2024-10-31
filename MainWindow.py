@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindow.ui'
+## Form generated from reading UI file 'Mainwindow.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -25,11 +25,13 @@ class Ui_MainWindow(object):
         MainWindow.resize(1200, 675)
         MainWindow.setMinimumSize(QSize(1200, 675))
         MainWindow.setMaximumSize(QSize(1200, 675))
+        icon = QIcon()
+        icon.addFile(u"assests/icons8-slot-machine-48.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"#Background_Widget {\n"
 "    background-image: url(C:/Users/MyCom/Desktop/.vscode/Github_Projects/Music_Genre_Casino/assests/Casino_BG_tiny.png);\n"
 "    background-position: center;\n"
 "    background-repeat: no-repeat;\n"
-
 "}")
         self.Background_Widget = QWidget(MainWindow)
         self.Background_Widget.setObjectName(u"Background_Widget")
@@ -58,9 +60,9 @@ class Ui_MainWindow(object):
 "QPushButton:focus {\n"
 "    outline: none;\n"
 "}")
-        icon = QIcon()
-        icon.addFile(u"assests/Slot_Machine_Lever.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.Slot_Lever_Widget.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u"assests/Slot_Machine_Lever.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.Slot_Lever_Widget.setIcon(icon1)
         self.Slot_Lever_Widget.setIconSize(QSize(100, 600))
         self.Slot_Lever_Widget.setFlat(True)
         MainWindow.setCentralWidget(self.Background_Widget)

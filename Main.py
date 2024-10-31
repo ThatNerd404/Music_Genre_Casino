@@ -7,10 +7,11 @@ def Main():
     window = UserInterface()
     window.show()
     app.exec()
+    
 if __name__ == "__main__":
     Main()
 
-#* command to turn ui files into py files: pyside6-uic input.ui > output.py 
+#* command to turn ui files into py files: pyside6-uic Mainwindow.ui > MainWindow.py 
 #* command to turn py files into exe files: pyinstaller --onefile -w pytoexe.py
 #! remember to change encoding of the  ui-to-py files to utf-8 EVERY SINGLE TIME
 #! REMEMBER YOU HAVE TO DELETE THE OLD PY FILE TO MAKE THE NEW ONE

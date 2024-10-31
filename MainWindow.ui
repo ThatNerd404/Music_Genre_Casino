@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>assests/icons8-slot-machine-48.ico</normaloff>assests/icons8-slot-machine-48.ico</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">#Background_Widget {
     background-image: url(C:/Users/MyCom/Desktop/.vscode/Github_Projects/Music_Genre_Casino/assests/Casino_BG_tiny.png);
