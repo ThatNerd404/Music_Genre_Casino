@@ -3,6 +3,7 @@ from PySide6.QtCore import QTimer
 from MainWindow import Ui_MainWindow
 import random
 
+#* Dictionary with first genre then subgenre organised in a nice list
 Genre_Dict = {"Avant-Garde & Experimental":["Crossover Music", "Danger Music", "Drone Music", "Electroacoustic", "Industrial Music",
                                             "Instrumental Music", "Lo-fi", "Musical Improvisation", "Musique Concrete", "Noise",
                                             "Outsider Music", "Progressive Music", "Psychedelic Music", "Underground Music"
@@ -92,10 +93,10 @@ class UserInterface(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.setWindowTitle("Music Genre Casino")
-        self.Slot_Lever_Widget.clicked.connect(self.Crank_That_Bitch)
+        self.Slot_Lever_Widget.clicked.connect(self.Crank_That_Bitch) # How I connect a button to a function
         
     def Random_Genre(self):
-        Random_Genre = random.choice(list(Genre_Dict.keys()))
+        Random_Genre = random.choice(list(Genre_Dict.keys())) #change the keys into a list then randomly pick one
         Random_Sub_Genre = random.choice(Genre_Dict[Random_Genre])
         return f"{Random_Genre}: {Random_Sub_Genre}"
     
@@ -106,6 +107,7 @@ class UserInterface(QMainWindow, Ui_MainWindow):
              self.spin_count = 0 
              self.spin_speed = 0
              self.Spinning()
+    
     def Spinning(self):
         # Flash 18 times starting at 25ms and ending at 450ms
                 if self.spin_count < 18:
@@ -113,9 +115,10 @@ class UserInterface(QMainWindow, Ui_MainWindow):
                         self.Slot_Result_Label.setText(result_text)
                         self.spin_count += 1
                         self.spin_speed += 25
-                        QTimer.singleShot(self.spin_speed,self.Spinning)
+                        QTimer.singleShot(self.spin_speed,self.Spinning) # Same as the .after stuff
                 else:
                         self.Stop_Spin()
     def Stop_Spin(self):
+        # Put the final result in and stop the spin
                 final_result_text = self.Random_Genre()
                 self.Slot_Result_Label.setText(final_result_text)
