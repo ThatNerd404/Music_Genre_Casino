@@ -1,6 +1,7 @@
+from PySide6.QtWidgets import QWidget, QMainWindow
+from PySide6.QtCore import QTimer
+from MainWindow import Ui_MainWindow
 import random
-import tkinter as tk
-from tkinter import ttk
 
 Genre_Dict = {"Avant-Garde & Experimental":["Crossover Music", "Danger Music", "Drone Music", "Electroacoustic", "Industrial Music",
                                             "Instrumental Music", "Lo-fi", "Musical Improvisation", "Musique Concrete", "Noise",
@@ -85,89 +86,36 @@ Genre_Dict = {"Avant-Garde & Experimental":["Crossover Music", "Danger Music", "
                       ]
               }
 
-class myApp:
-        
-        def __init__(self, root):
-             self.root = root
-             self.root.title("Music Genre Casino")
-             self.root.iconbitmap('assests\icons8-slot-machine-48.ico')
-             # window size 
-             self.casino_img = tk.PhotoImage(file="assests\Casino_BG_tiny.png") #photoimage only takes pngs
-             self.window_width = self.casino_img.width()
-             self.window_height =self.casino_img.height()
-             print(self.window_width,self.window_height)
-             # get the screen dimension
-             self.screen_width = root.winfo_screenwidth()
-             self.screen_height = root.winfo_screenheight()
-             self.root.resizable(False, False)
 
-             # find the center point
-             self.center_x_screen = int(self.screen_width/2 - self.window_width / 2)
-             self.center_y_screen = int(self.screen_height/2 - self.window_height / 2)
-
-             # set the position of the window to the center of the screen
-             self.root.geometry(f'{self.window_width}x{self.window_height}+{self.center_x_screen}+{self.center_y_screen}')
-             self.bg_image = ttk.Label(self.root, image=self.casino_img, anchor=tk.CENTER)
-             self.bg_image.place(x=0,y=0)
-             
-             self.slot_machine_img = tk.PhotoImage(file="assests\Slot_Machine.png")
-             self.spinny_spinny_time = ttk.Label(self.root, image=self.slot_machine_img)
-             self.spinny_spinny_time.place(relx=0.5,y=300, anchor=tk.CENTER)
-             
-              # Label to display the genre and subgenre
-             self.result_label = ttk.Label(self.root, text="", font=("Helvetica", 14), anchor=tk.CENTER)
-             self.result_label.place(relx=0.5,y=200, anchor=tk.CENTER)
-
-        # Button to trigger Crank_That_Bitch
-             self.generate_button = ttk.Button(self.root, text="Generate Genre", command=self.Crank_That_Bitch)
-             self.generate_button.place(relx=0.5,y=250, anchor=tk.CENTER)
+class UserInterface(QMainWindow, Ui_MainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.setWindowTitle("Music Genre Casino")
+        self.Slot_Lever_Widget.clicked.connect(self.Crank_That_Bitch)
         
-        def Random_Genre(self):
-             Random_Genre = random.choice(list(Genre_Dict.keys()))
-             Random_Sub_Genre = random.choice(Genre_Dict[Random_Genre])
-             return f"{Random_Genre}: {Random_Sub_Genre}"
-        
-        def Crank_That_Bitch(self):
+    def Random_Genre(self):
+        Random_Genre = random.choice(list(Genre_Dict.keys()))
+        Random_Sub_Genre = random.choice(Genre_Dict[Random_Genre])
+        return f"{Random_Genre}: {Random_Sub_Genre}"
+    
+    def Crank_That_Bitch(self):
         # Call Random_Genre and update the label with its result
              result_text = self.Random_Genre()
-             self.result_label.config(text=result_text)
-             self.generate_button.config(state=tk.DISABLED) 
+             self.Slot_Result_Label.setText(result_text)
              self.spin_count = 0 
              self.spin_speed = 0
              self.Spinning()
-        
-        def Spinning(self):
+    def Spinning(self):
         # Flash 18 times starting at 25ms and ending at 450ms
                 if self.spin_count < 18:
                         result_text = self.Random_Genre()
-                        self.result_label.config(text=result_text)
+                        self.Slot_Result_Label.setText(result_text)
                         self.spin_count += 1
                         self.spin_speed += 25
-                        self.root.after(self.spin_speed,self.Spinning)
+                        QTimer.singleShot(self.spin_speed,self.Spinning)
                 else:
                         self.Stop_Spin()
-                        
-        def Stop_Spin(self):
+    def Stop_Spin(self):
                 final_result_text = self.Random_Genre()
-                self.generate_button.config(state=tk.NORMAL)
-                self.result_label.config(text=final_result_text)
-                
-
-                      
-
-        
-     
-def Main():
-
-    root = tk.Tk() # initialize the main window
-    app = myApp(root)
-    root.mainloop() # run the application
-    
-   
-    
-    
-
-
- 
-if __name__ == "__main__":
-    Main()
+                self.Slot_Result_Label.setText(final_result_text)

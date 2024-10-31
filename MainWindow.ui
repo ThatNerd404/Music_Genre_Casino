@@ -6,39 +6,125 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1200</width>
+    <height>675</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>675</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1200</width>
+    <height>675</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QPlainTextEdit" name="plainTextEdit">
+  <property name="styleSheet">
+   <string notr="true">#Background_Widget {
+    background-image: url(C:/Users/MyCom/Desktop/.vscode/Github_Projects/Music_Genre_Casino/assests/Casino_BG_tiny.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}</string>
+  </property>
+  <widget class="QWidget" name="Background_Widget">
+   <widget class="QLabel" name="Slot_Machine_Widget">
     <property name="geometry">
      <rect>
-      <x>333</x>
-      <y>200</y>
-      <width>81</width>
-      <height>21</height>
+      <x>600</x>
+      <y>70</y>
+      <width>421</width>
+      <height>581</height>
      </rect>
     </property>
-    <property name="plainText">
-     <string>Penis Fart</string>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>assests/Slot_Machine.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Slot_Title_Widget">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>150</y>
+      <width>281</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black</string>
+    </property>
+    <property name="text">
+     <string> Pull the lever to generate a random music genre!</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Slot_Result_Label">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>260</y>
+      <width>251</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Slot_Lever_Widget">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>250</y>
+      <width>151</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    outline: none;  /* Removes the blue focus effect */
+    border: none;   /* Removes any default border */
+}
+
+QPushButton:focus {
+    outline: none;
+}</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>assests/Slot_Machine_Lever.png</normaloff>assests/Slot_Machine_Lever.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
