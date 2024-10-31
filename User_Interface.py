@@ -87,7 +87,7 @@ Genre_Dict = {"Avant-Garde & Experimental":["Crossover Music", "Danger Music", "
                       ]
               }
 
-
+#! I used QMainWindow so obviously I don't grab QWidget you dunce
 class UserInterface(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
