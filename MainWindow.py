@@ -42,15 +42,23 @@ class Ui_MainWindow(object):
         self.Slot_Machine_Widget.setScaledContents(True)
         self.Slot_Title_Widget = QLabel(self.Background_Widget)
         self.Slot_Title_Widget.setObjectName(u"Slot_Title_Widget")
-        self.Slot_Title_Widget.setGeometry(QRect(670, 150, 281, 16))
-        self.Slot_Title_Widget.setStyleSheet(u"color: black")
+        self.Slot_Title_Widget.setGeometry(QRect(420, 80, 131, 181))
+        self.Slot_Title_Widget.setStyleSheet(u"color: black;\n"
+"font-weight: bold;")
+        self.Slot_Title_Widget.setTextFormat(Qt.AutoText)
+        self.Slot_Title_Widget.setScaledContents(True)
+        self.Slot_Title_Widget.setWordWrap(True)
         self.Slot_Result_Label = QLabel(self.Background_Widget)
         self.Slot_Result_Label.setObjectName(u"Slot_Result_Label")
-        self.Slot_Result_Label.setGeometry(QRect(680, 260, 251, 51))
-        self.Slot_Result_Label.setStyleSheet(u"color: black")
+        self.Slot_Result_Label.setGeometry(QRect(670, 100, 271, 91))
+        self.Slot_Result_Label.setStyleSheet(u"color: black;\n"
+"font-weight:bold;\n"
+"text-align:center;")
+        self.Slot_Result_Label.setAlignment(Qt.AlignCenter)
+        self.Slot_Result_Label.setWordWrap(True)
         self.Slot_Lever_Widget = QPushButton(self.Background_Widget)
         self.Slot_Lever_Widget.setObjectName(u"Slot_Lever_Widget")
-        self.Slot_Lever_Widget.setGeometry(QRect(950, 250, 151, 241))
+        self.Slot_Lever_Widget.setGeometry(QRect(950, 200, 151, 241))
         self.Slot_Lever_Widget.setAutoFillBackground(False)
         self.Slot_Lever_Widget.setStyleSheet(u"QPushButton {\n"
 "    outline: none;  /* Removes the blue focus effect */\n"
@@ -65,7 +73,24 @@ class Ui_MainWindow(object):
         self.Slot_Lever_Widget.setIcon(icon1)
         self.Slot_Lever_Widget.setIconSize(QSize(100, 600))
         self.Slot_Lever_Widget.setFlat(True)
+        self.Speech_Bubble_widget = QLabel(self.Background_Widget)
+        self.Speech_Bubble_widget.setObjectName(u"Speech_Bubble_widget")
+        self.Speech_Bubble_widget.setGeometry(QRect(400, 70, 171, 211))
+        self.Speech_Bubble_widget.setPixmap(QPixmap(u"assests/manga-speech-bubbles-empty-speech-bubble.png"))
+        self.Dealer_Widget = QLabel(self.Background_Widget)
+        self.Dealer_Widget.setObjectName(u"Dealer_Widget")
+        self.Dealer_Widget.setGeometry(QRect(60, 130, 361, 551))
+        self.Dealer_Widget.setMinimumSize(QSize(361, 551))
+        self.Dealer_Widget.setMaximumSize(QSize(361, 551))
+        self.Dealer_Widget.setPixmap(QPixmap(u"assests/Brayden_Dealer.png"))
+        self.Dealer_Widget.setScaledContents(True)
         MainWindow.setCentralWidget(self.Background_Widget)
+        self.Dealer_Widget.raise_()
+        self.Slot_Machine_Widget.raise_()
+        self.Slot_Result_Label.raise_()
+        self.Slot_Lever_Widget.raise_()
+        self.Speech_Bubble_widget.raise_()
+        self.Slot_Title_Widget.raise_()
 
         self.retranslateUi(MainWindow)
 
@@ -78,7 +103,9 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.Slot_Machine_Widget.setText("")
-        self.Slot_Title_Widget.setText(QCoreApplication.translate("MainWindow", u" Pull the lever to generate a random music genre!", None))
+        self.Slot_Title_Widget.setText(QCoreApplication.translate("MainWindow", u"Pull the lever to generate a random music genre!", None))
         self.Slot_Result_Label.setText("")
+        self.Speech_Bubble_widget.setText("")
+        self.Dealer_Widget.setText("")
     # retranslateUi
 
