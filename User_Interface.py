@@ -1,5 +1,6 @@
-from PySide6.QtWidgets import QWidget, QMainWindow
+from PySide6.QtWidgets import QWidget, QMainWindow, QPushButton
 from PySide6.QtCore import QTimer
+from PySide6.QtGui import QTransform, QPixmap, QIcon
 from MainWindow import Ui_MainWindow
 import random
 
@@ -93,33 +94,49 @@ class UserInterface(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.setWindowTitle("Music Genre Casino")
-        self.Slot_Lever_Widget.clicked.connect(self.Crank_That_Bitch) # How I connect a button to a function
+        self.Slot_Lever_Widget.clicked.connect(self.Crank_That_Bitch) #? How I connect a button to a function
         
     def Random_Genre(self):
-        Random_Genre = random.choice(list(Genre_Dict.keys())) # Change the keys into a list then randomly pick one
-        Random_Sub_Genre = random.choice(Genre_Dict[Random_Genre]) # From the random key, choose a random value from its subgenre list
+        Random_Genre = random.choice(list(Genre_Dict.keys())) #? Change the keys into a list then randomly pick one
+        Random_Sub_Genre = random.choice(Genre_Dict[Random_Genre]) #? From the random key, choose a random value from its subgenre list
         return f"{Random_Genre}: {Random_Sub_Genre}"
     
     def Crank_That_Bitch(self):
-        # Call Random_Genre and update the label with its result
+        #? Call Random_Genre and update the label with its result
              result_text = self.Random_Genre()
              self.Slot_Result_Label.setText(result_text)
+             
+        #? Flip the lever upside down and move it down so it looks the same
+             self.Slot_Lever_Widget_Pixmap = self.Slot_Lever_Widget.icon().pixmap(self.Slot_Lever_Widget.iconSize())
+             self.transform = QTransform().scale(1,-1)
+             self.Slot_Lever_Widget_Flipped = self.Slot_Lever_Widget_Pixmap.transformed(self.transform)
+             self.Slot_Lever_Widget.setIcon(QIcon(self.Slot_Lever_Widget_Flipped))
+             self.Slot_Lever_Widget_X = self.Slot_Lever_Widget.x()
+             self.Slot_Lever_Widget_Y = self.Slot_Lever_Widget.y() 
+             self.Slot_Lever_Widget.move(self.Slot_Lever_Widget_X, self.Slot_Lever_Widget_Y + 130) #* Increasing the y makes it move down
+        #? initiate spin sequence 
              self.spin_count = 0 
              self.spin_speed = 0
              self.Spinning()
     
     def Spinning(self):
-        # Flash 18 times starting at 25ms and ending at 450ms
+        #? Flash 18 times starting at 25ms and ending at 450ms
                 if self.spin_count < 18:
                         result_text = self.Random_Genre()
                         self.Slot_Result_Label.setText(result_text)
                         self.spin_count += 1
                         self.spin_speed += 25
-                        QTimer.singleShot(self.spin_speed,self.Spinning) # Same as the .after stuff
+                        QTimer.singleShot(self.spin_speed,self.Spinning) #? Same as the .after stuff
                 else:
                         self.Stop_Spin()
                         
     def Stop_Spin(self):
-        # Put the final result in and stop the spin
+        #? Put the final result in and stop the spin
                 final_result_text = self.Random_Genre()
                 self.Slot_Result_Label.setText(final_result_text)
+        #? Flip the lever back and move it up
+                self.Slot_Lever_Widget_Pixmap = self.Slot_Lever_Widget.icon().pixmap(self.Slot_Lever_Widget.iconSize())
+                self.transform = QTransform().scale(1,-1)
+                self.Slot_Lever_Widget_Flipped = self.Slot_Lever_Widget_Pixmap.transformed(self.transform)
+                self.Slot_Lever_Widget.setIcon(QIcon(self.Slot_Lever_Widget_Flipped))
+                self.Slot_Lever_Widget.move(self.Slot_Lever_Widget_X, self.Slot_Lever_Widget_Y - 0) #* Increasing the y makes it move down
