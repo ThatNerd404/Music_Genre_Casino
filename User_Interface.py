@@ -3,6 +3,8 @@ from PySide6.QtCore import QTimer
 from PySide6.QtGui import QTransform, QPixmap, QIcon
 from MainWindow import Ui_MainWindow
 import random
+import pygame
+from pygame import mixer
 
 #* Dictionary with first genre then subgenre organised in a nice list
 Genre_Dict = {"Avant-Garde & Experimental":["Crossover Music", "Danger Music", "Drone Music", "Electroacoustic", "Industrial Music",
@@ -114,6 +116,7 @@ class UserInterface(QMainWindow, Ui_MainWindow):
              self.Slot_Lever_Widget_X = self.Slot_Lever_Widget.x()
              self.Slot_Lever_Widget_Y = self.Slot_Lever_Widget.y() 
              self.Slot_Lever_Widget.move(self.Slot_Lever_Widget_X, self.Slot_Lever_Widget_Y + 130) #* Increasing the y makes it move down
+        
         #? initiate spin sequence 
              self.spin_count = 0 
              self.spin_speed = 0
@@ -134,9 +137,17 @@ class UserInterface(QMainWindow, Ui_MainWindow):
         #? Put the final result in and stop the spin
                 final_result_text = self.Random_Genre()
                 self.Slot_Result_Label.setText(final_result_text)
+        
         #? Flip the lever back and move it up
                 self.Slot_Lever_Widget_Pixmap = self.Slot_Lever_Widget.icon().pixmap(self.Slot_Lever_Widget.iconSize())
                 self.transform = QTransform().scale(1,-1)
                 self.Slot_Lever_Widget_Flipped = self.Slot_Lever_Widget_Pixmap.transformed(self.transform)
                 self.Slot_Lever_Widget.setIcon(QIcon(self.Slot_Lever_Widget_Flipped))
                 self.Slot_Lever_Widget.move(self.Slot_Lever_Widget_X, self.Slot_Lever_Widget_Y - 0) #* Increasing the y makes it move down
+        
+        #? play the sound effect
+                pygame.init()
+                pygame.mixer.music.set_endevent(pygame.USEREVENT)
+                mixer.init()
+                mixer.music.load("assests/Celebration Sound Effect.mp3")
+                mixer.music.play()
