@@ -40,7 +40,7 @@
    <widget class="QLabel" name="Slot_Machine_Widget">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>590</x>
       <y>70</y>
       <width>421</width>
       <height>581</height>
@@ -50,7 +50,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>assests/Slot_Machine.png</pixmap>
+     <pixmap>assests/Music_Genre_Slot_machine.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -85,8 +85,8 @@ font-weight: bold;</string>
    <widget class="QLabel" name="Slot_Result_Label">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>100</y>
+      <x>660</x>
+      <y>250</y>
       <width>271</width>
       <height>91</height>
      </rect>
@@ -109,10 +109,10 @@ text-align:center;</string>
    <widget class="QPushButton" name="Slot_Lever_Widget">
     <property name="geometry">
      <rect>
-      <x>950</x>
+      <x>980</x>
       <y>200</y>
-      <width>151</width>
-      <height>241</height>
+      <width>181</width>
+      <height>271</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -126,16 +126,21 @@ text-align:center;</string>
 
 QPushButton:focus {
     outline: none;
+}
+QPushButton:disabled {
+    border:none;
+    outline:none;
+	qproperty-icon: url(:/assests\Music_Genre_Casino_Lever.png);
 }</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>assests/Slot_Machine_Lever.png</normaloff>assests/Slot_Machine_Lever.png</iconset>
+      <normaloff>assests/Music_Genre_Casino_Lever.png</normaloff>assests/Music_Genre_Casino_Lever.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>100</width>
-      <height>600</height>
+      <width>1000</width>
+      <height>1300</height>
      </size>
     </property>
     <property name="default">
