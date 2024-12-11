@@ -153,17 +153,20 @@ QPushButton:disabled {
    <widget class="QLabel" name="Speech_Bubble_widget">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>70</y>
-      <width>171</width>
-      <height>211</height>
+      <x>360</x>
+      <y>50</y>
+      <width>211</width>
+      <height>231</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>assests/manga-speech-bubbles-empty-speech-bubble.png</pixmap>
+     <pixmap>assests/Speech Bubble.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="Dealer_Widget">
