@@ -98,7 +98,7 @@ class UserInterface(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowTitle("Music Genre Casino")
         
-        self.pixel_font = QFontDatabase.addApplicationFont("assests\Retro Gaming.ttf")
+        self.pixel_font = QFontDatabase.addApplicationFont("assests\\Retro Gaming.ttf")
         self.pixel_font_family =  QFontDatabase.applicationFontFamilies(self.pixel_font)
         self.Slot_Title_Widget.setFont(QFont(self.pixel_font_family[0], 13))
         self.Slot_Result_Label.setFont(QFont(self.pixel_font_family[0], 20))
