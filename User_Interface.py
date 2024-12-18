@@ -100,8 +100,8 @@ class UserInterface(QMainWindow, Ui_MainWindow):
         
         self.pixel_font = QFontDatabase.addApplicationFont("assests\\Retro Gaming.ttf")
         self.pixel_font_family =  QFontDatabase.applicationFontFamilies(self.pixel_font)
-        self.Slot_Title_Widget.setFont(QFont(self.pixel_font_family[0], 13))
-        self.Slot_Result_Label.setFont(QFont(self.pixel_font_family[0], 20))
+        self.Slot_Title_Widget.setFont(QFont(self.pixel_font_family[0], 11))
+        self.Slot_Result_Label.setFont(QFont(self.pixel_font_family[0], 11))
         self.Slot_Lever_Widget.clicked.connect(self.Crank_That_Bitch) #? How I connect a button to a function
        
         
@@ -122,7 +122,7 @@ class UserInterface(QMainWindow, Ui_MainWindow):
              self.Slot_Lever_Widget.setIcon(QIcon(self.Slot_Lever_Widget_Flipped))
              self.Slot_Lever_Widget_X = self.Slot_Lever_Widget.x()
              self.Slot_Lever_Widget_Y = self.Slot_Lever_Widget.y() 
-             self.Slot_Lever_Widget.move(self.Slot_Lever_Widget_X, self.Slot_Lever_Widget_Y + 170) #* Increasing the y makes it move down
+             self.Slot_Lever_Widget.move(self.Slot_Lever_Widget_X, self.Slot_Lever_Widget_Y + 130) #* Increasing the y makes it move down
              self.Slot_Lever_Widget.setEnabled(False)
              
         #? initiate spin sequence 

@@ -31,19 +31,18 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#Background_Widget {
-    background-image: url(C:/Users/MyCom/Desktop/.vscode/Github_Projects/Music_Genre_Casino/assests/Casino_BG_tiny.png);
-    background-position: center;
-    background-repeat: no-repeat;
-}</string>
+    background-image: url(C:/Users/MyCom/Desktop/.vscode/Github_Projects/Music_Genre_Casino/assests/Casino_BG_Colorful.png);
+}
+</string>
   </property>
   <widget class="QWidget" name="Background_Widget">
    <widget class="QLabel" name="Slot_Machine_Widget">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>70</y>
-      <width>421</width>
-      <height>581</height>
+      <x>520</x>
+      <y>280</y>
+      <width>311</width>
+      <height>371</height>
      </rect>
     </property>
     <property name="text">
@@ -59,10 +58,10 @@
    <widget class="QLabel" name="Slot_Title_Widget">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>80</y>
+      <x>330</x>
+      <y>270</y>
       <width>131</width>
-      <height>181</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -85,9 +84,9 @@ font-weight: bold;</string>
    <widget class="QLabel" name="Slot_Result_Label">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>250</y>
-      <width>271</width>
+      <x>560</x>
+      <y>380</y>
+      <width>231</width>
       <height>91</height>
      </rect>
     </property>
@@ -109,10 +108,10 @@ text-align:center;</string>
    <widget class="QPushButton" name="Slot_Lever_Widget">
     <property name="geometry">
      <rect>
-      <x>980</x>
-      <y>200</y>
-      <width>181</width>
-      <height>271</height>
+      <x>810</x>
+      <y>360</y>
+      <width>141</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -139,8 +138,8 @@ QPushButton:disabled {
     </property>
     <property name="iconSize">
      <size>
-      <width>1000</width>
-      <height>1300</height>
+      <width>500</width>
+      <height>400</height>
      </size>
     </property>
     <property name="default">
@@ -153,8 +152,8 @@ QPushButton:disabled {
    <widget class="QLabel" name="Speech_Bubble_widget">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>50</y>
+      <x>280</x>
+      <y>200</y>
       <width>211</width>
       <height>231</height>
      </rect>
@@ -173,15 +172,15 @@ QPushButton:disabled {
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>130</y>
-      <width>361</width>
-      <height>551</height>
+      <y>340</y>
+      <width>261</width>
+      <height>341</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>361</width>
-      <height>551</height>
+      <width>0</width>
+      <height>0</height>
      </size>
     </property>
     <property name="maximumSize">
@@ -200,12 +199,32 @@ QPushButton:disabled {
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>-50</y>
+      <width>511</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>assests/Casino_Sign.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>Dealer_Widget</zorder>
    <zorder>Slot_Machine_Widget</zorder>
    <zorder>Slot_Result_Label</zorder>
    <zorder>Slot_Lever_Widget</zorder>
    <zorder>Speech_Bubble_widget</zorder>
    <zorder>Slot_Title_Widget</zorder>
+   <zorder>label</zorder>
   </widget>
  </widget>
  <resources/>
