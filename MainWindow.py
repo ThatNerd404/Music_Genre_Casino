@@ -29,7 +29,8 @@ class Ui_MainWindow(object):
         icon.addFile(u"assests/icons8-slot-machine-48.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"#Background_Widget {\n"
-"    background-image: url(C:/Users/MyCom/Desktop/.vscode/Github_Projects/Music_Genre_Casino/assests/Casino_BG_Colorful.png);\n"
+"    background-image: url(C:/Users/MyCom/Desktop/.vscode/Github_Projects/Music_Genre_Casino/assests/Casino_BG_ROOM.png);\n"
+"	background-repeat: no-repeat;\n"
 "}\n"
 "")
         self.Background_Widget = QWidget(MainWindow)
@@ -91,7 +92,7 @@ class Ui_MainWindow(object):
         self.Dealer_Widget.setScaledContents(True)
         self.label = QLabel(self.Background_Widget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(440, -50, 511, 391))
+        self.label.setGeometry(QRect(350, -70, 511, 391))
         self.label.setPixmap(QPixmap(u"assests/Casino_Sign.png"))
         self.label.setScaledContents(True)
         MainWindow.setCentralWidget(self.Background_Widget)

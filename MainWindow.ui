@@ -31,7 +31,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#Background_Widget {
-    background-image: url(C:/Users/MyCom/Desktop/.vscode/Github_Projects/Music_Genre_Casino/assests/Casino_BG_Colorful.png);
+    background-image: url(C:/Users/MyCom/Desktop/.vscode/Github_Projects/Music_Genre_Casino/assests/Casino_BG_ROOM.png);
+	background-repeat: no-repeat;
 }
 </string>
   </property>
@@ -202,8 +203,8 @@ QPushButton:disabled {
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>-50</y>
+      <x>350</x>
+      <y>-70</y>
       <width>511</width>
       <height>391</height>
      </rect>
