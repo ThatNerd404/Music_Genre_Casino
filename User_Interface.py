@@ -97,6 +97,12 @@ class UserInterface(QMainWindow, Ui_MainWindow):
         #? setup window
         self.setupUi(self)
         self.setWindowTitle("Music Genre Casino")
+        pygame.init()
+        mixer.init()
+        mixer.music.set_volume(0.1)
+        mixer.music.load("assests/Afternoon_Jazz_jazz_lofi_[_YTBMP3.org_].mp3")
+        pygame.mixer.music.set_endevent(pygame.USEREVENT)
+        mixer.music.play(-1) 
         
         self.pixel_font = QFontDatabase.addApplicationFont("assests\\Retro Gaming.ttf")
         self.pixel_font_family =  QFontDatabase.applicationFontFamilies(self.pixel_font)
@@ -154,11 +160,9 @@ class UserInterface(QMainWindow, Ui_MainWindow):
                 self.Slot_Lever_Widget.move(self.Slot_Lever_Widget_X, self.Slot_Lever_Widget_Y - 0) #* Increasing the y makes it move down
 
         #? play the sound effect
-                pygame.init()
-                pygame.mixer.music.set_endevent(pygame.USEREVENT)
-                mixer.init()
-                mixer.music.load("assests/Celebration Sound Effect.mp3")
-                mixer.music.play()
-                
+                sound_effect_channel = pygame.mixer.Channel(0)
+                effect = pygame.mixer.Sound("assests/Celebration Sound Effect.mp3")
+                sound_effect_channel.set_volume(0.3)
+                sound_effect_channel.play(effect)
         #? Enable button again
                 self.Slot_Lever_Widget.setEnabled(True)
