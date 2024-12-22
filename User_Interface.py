@@ -99,6 +99,7 @@ class UserInterface(QMainWindow, Ui_MainWindow):
         self.setWindowTitle("Music Genre Casino")
         pygame.init()
         mixer.init()
+        
         mixer.music.set_volume(0.1)
         mixer.music.load("assests/Afternoon_Jazz_jazz_lofi_[_YTBMP3.org_].mp3")
         pygame.mixer.music.set_endevent(pygame.USEREVENT)
@@ -110,16 +111,21 @@ class UserInterface(QMainWindow, Ui_MainWindow):
         self.Slot_Result_Label.setFont(QFont(self.pixel_font_family[0], 13))
         self.Slot_Lever_Widget.clicked.connect(self.Crank_That_Bitch) #? How I connect a button to a function
        
-        
+        #? randomly switch the dealer image to the placeholder for funsies 
+        self.easteregg = random.randint(0,100)
+        placeholder = QPixmap("assests/Brayden_Dealer.png")
+        if self.easteregg == 69:
+                self.Dealer_Widget.setPixmap(placeholder)
+                
     def Random_Genre(self):
         Random_Genre = random.choice(list(Genre_Dict.keys())) #? Change the keys into a list then randomly pick one
         Random_Sub_Genre = random.choice(Genre_Dict[Random_Genre]) #? From the random key, choose a random value from its subgenre list
-        return f"{Random_Genre}: {Random_Sub_Genre}"
-    
+        return Random_Genre, Random_Sub_Genre
+
     def Crank_That_Bitch(self):
         #? Call Random_Genre and update the label with its result
              result_text = self.Random_Genre()
-             self.Slot_Result_Label.setText(result_text)
+             self.Slot_Result_Label.setText(f"{result_text[0]}: {result_text[1]}")
              
         #? Flip the lever upside down and move it down so it looks the same
              self.Slot_Lever_Widget_Pixmap = self.Slot_Lever_Widget.icon().pixmap(self.Slot_Lever_Widget.iconSize())
@@ -140,7 +146,7 @@ class UserInterface(QMainWindow, Ui_MainWindow):
         #? Flash 18 times starting at 25ms and ending at 450ms
                 if self.spin_count < 18:
                         result_text = self.Random_Genre()
-                        self.Slot_Result_Label.setText(result_text)
+                        self.Slot_Result_Label.setText(f"{result_text[0]}: {result_text[1]}")
                         self.spin_count += 1
                         self.spin_speed += 25
                         QTimer.singleShot(self.spin_speed,self.Spinning) #? Same as the .after stuff
@@ -150,7 +156,7 @@ class UserInterface(QMainWindow, Ui_MainWindow):
     def Stop_Spin(self):
         #? Put the final result in and stop the spin
                 final_result_text = self.Random_Genre()
-                self.Slot_Result_Label.setText(final_result_text)
+                self.Slot_Result_Label.setText(f"{final_result_text[0]}: {final_result_text[1]}")
         
         #? Flip the lever back and move it up
                 self.Slot_Lever_Widget_Pixmap = self.Slot_Lever_Widget.icon().pixmap(self.Slot_Lever_Widget.iconSize())
@@ -164,5 +170,9 @@ class UserInterface(QMainWindow, Ui_MainWindow):
                 effect = pygame.mixer.Sound("assests/Celebration Sound Effect.mp3")
                 sound_effect_channel.set_volume(0.3)
                 sound_effect_channel.play(effect)
-        #? Enable button again
+                
+        #? resetting and adding 
                 self.Slot_Lever_Widget.setEnabled(True)
+                self.Slot_Title_Widget.setText(f"{final_result_text[1]}? Nice Choice!")
+                Satistfied_Brayden = QPixmap("assests/Brayden_Pixel_Art_Thumbs.png")
+                self.Dealer_Widget.setPixmap(Satistfied_Brayden)
