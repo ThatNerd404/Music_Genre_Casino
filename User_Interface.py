@@ -134,7 +134,7 @@ class UserInterface(QMainWindow, Ui_MainWindow):
              self.Slot_Lever_Widget.setIcon(QIcon(self.Slot_Lever_Widget_Flipped))
              self.Slot_Lever_Widget_X = self.Slot_Lever_Widget.x()
              self.Slot_Lever_Widget_Y = self.Slot_Lever_Widget.y() 
-             self.Slot_Lever_Widget.move(self.Slot_Lever_Widget_X, self.Slot_Lever_Widget_Y + 130) #* Increasing the y makes it move down
+             self.Slot_Lever_Widget.move(self.Slot_Lever_Widget_X, self.Slot_Lever_Widget_Y + 50) #* Increasing the y makes it move down
              self.Slot_Lever_Widget.setEnabled(False)
              
         #? initiate spin sequence 

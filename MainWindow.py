@@ -37,8 +37,8 @@ class Ui_MainWindow(object):
         self.Background_Widget.setObjectName(u"Background_Widget")
         self.Slot_Machine_Widget = QLabel(self.Background_Widget)
         self.Slot_Machine_Widget.setObjectName(u"Slot_Machine_Widget")
-        self.Slot_Machine_Widget.setGeometry(QRect(520, 280, 311, 371))
-        self.Slot_Machine_Widget.setPixmap(QPixmap(u"assests/Music_Genre_Slot_machine.png"))
+        self.Slot_Machine_Widget.setGeometry(QRect(450, 210, 381, 441))
+        self.Slot_Machine_Widget.setPixmap(QPixmap(u"assests/Jukebox_Slotmachine.png"))
         self.Slot_Machine_Widget.setScaledContents(True)
         self.Slot_Title_Widget = QLabel(self.Background_Widget)
         self.Slot_Title_Widget.setObjectName(u"Slot_Title_Widget")
@@ -50,7 +50,7 @@ class Ui_MainWindow(object):
         self.Slot_Title_Widget.setWordWrap(True)
         self.Slot_Result_Label = QLabel(self.Background_Widget)
         self.Slot_Result_Label.setObjectName(u"Slot_Result_Label")
-        self.Slot_Result_Label.setGeometry(QRect(560, 380, 231, 91))
+        self.Slot_Result_Label.setGeometry(QRect(540, 380, 191, 81))
         self.Slot_Result_Label.setStyleSheet(u"color: black;\n"
 "font-weight:bold;\n"
 "text-align:center;")
@@ -58,7 +58,7 @@ class Ui_MainWindow(object):
         self.Slot_Result_Label.setWordWrap(True)
         self.Slot_Lever_Widget = QPushButton(self.Background_Widget)
         self.Slot_Lever_Widget.setObjectName(u"Slot_Lever_Widget")
-        self.Slot_Lever_Widget.setGeometry(QRect(810, 360, 141, 211))
+        self.Slot_Lever_Widget.setGeometry(QRect(770, 350, 121, 211))
         self.Slot_Lever_Widget.setAutoFillBackground(False)
         self.Slot_Lever_Widget.setStyleSheet(u"QPushButton {\n"
 "    outline: none;  /* Removes the blue focus effect */\n"
@@ -71,12 +71,12 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {\n"
 "    border:none;\n"
 "    outline:none;\n"
-"	qproperty-icon: url(:/assests\\Music_Genre_Casino_Lever.png);\n"
+"	qproperty-icon: url(:/assests\\Jukebox_Handle.png);\n"
 "}")
         icon1 = QIcon()
-        icon1.addFile(u"assests/Music_Genre_Casino_Lever.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon1.addFile(u"assests/Jukebox_Handle.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.Slot_Lever_Widget.setIcon(icon1)
-        self.Slot_Lever_Widget.setIconSize(QSize(500, 400))
+        self.Slot_Lever_Widget.setIconSize(QSize(500, 300))
         self.Slot_Lever_Widget.setFlat(True)
         self.Speech_Bubble_widget = QLabel(self.Background_Widget)
         self.Speech_Bubble_widget.setObjectName(u"Speech_Bubble_widget")
